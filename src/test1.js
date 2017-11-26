@@ -5,6 +5,7 @@ var Test1Layer = cc.Layer.extend({
     dy:4,
     ang: 0,
     counter:0,
+    bricks: new Array(),
     ctor:function () {
         this._super();
 
@@ -16,6 +17,15 @@ var Test1Layer = cc.Layer.extend({
         this.ball.scaleY = 1;
 
         this.addChild(this.ball);
+
+        for (var i=0; i<10; i++){
+            this.bricks[i] = new cc.Sprite(res.brick_png);
+            this.bricks[i].x = this.bricks[i].width*i + this.bricks[i].width/2;
+            this.bricks[i].y = cc.winSize.height * 9 / 10;
+            this.addChild(this.bricks[i]);
+        }
+
+
         this.scheduleUpdate();
 
 
